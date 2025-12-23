@@ -1,0 +1,51 @@
+services:
+  sonarqube:
+    image: sonarqube:community
+    container_name: sonarqube
+    # Mantenha o limite de memória para funcionar corretamente
+    mem_limit: 2g
+    ports:
+      # Porta padrão do SonarQube
+      - "8999:8999"
+    volumes:
+      # Persistir dados
+      - sonarqube_data:/opt/sonarqube/data
+      # Persistir logs
+      - sonarqube_logs:/opt/sonarqube/logs
+      # Persistir extensões/plugins
+      - sonarqube_extensions:/opt/sonarqube/extensions
+    environment:
+      # Aumenta o limite de memória para o container funcionar
+      - SONAR_WEB_JAVA_OPTS=-Xmx512m -Xms512m
+    # SonarQube precisa de um kernel com vm.max_map_count >= 524288
+    # sysctls:
+    # - net.core.somaxconn=1024
+    # - vm.max_map_count=524288
+    restart: unless-stopped
+
+  owasp-zap:
+    image: zaproxy/zap-stable # <- IMAGEM ALTERADA AQUI
+    container_name: owasp-zap
+    ports:
+      # A porta padrão da API do ZAP é 8080 (se não for especificada).
+      - "8080:8080"
+    mem_limit: 2g
+    command:
+      - zap.sh
+      - -daemon
+      - -port
+      - "8080"
+      - -host
+      - "0.0.0.0"
+      - -config
+      - api.key=12345
+      - -config
+      - api.addrs.addr.name=.*
+      - -config
+      - api.addrs.addr.regex=true
+    restart: on-failure
+
+volumes:
+  sonarqube_data:
+  sonarqube_logs:
+  sonarqube_extensions:
