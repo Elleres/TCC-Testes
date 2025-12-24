@@ -17,19 +17,18 @@ services:
     environment:
       # Aumenta o limite de memória para o container funcionar
       - SONAR_WEB_JAVA_OPTS=-Xmx512m -Xms512m
-    # SonarQube precisa de um kernel com vm.max_map_count >= 524288
-    # sysctls:
-    # - net.core.somaxconn=1024
-    # - vm.max_map_count=524288
+
     restart: unless-stopped
 
   owasp-zap:
-    image: zaproxy/zap-stable # <- IMAGEM ALTERADA AQUI
+    image: ghcr.io/zaproxy/zaproxy:nightly # <- IMAGEM ALTERADA AQUI
     container_name: owasp-zap
     ports:
       # A porta padrão da API do ZAP é 8080 (se não for especificada).
       - "8080:8080"
-    mem_limit: 2g
+    mem_limit: 3g
+    environment:
+      - ZAP_JVM_OPTIONS=-Xmx2g -Xms1g
     command:
       - zap.sh
       - -daemon

@@ -207,16 +207,16 @@ td {
 
 	<h2>
 		
-		Site: http://host.docker.internal:8000
+		
 		
 	</h2>
 
 	<h3>
-		Generated on Tue, 23 Dec 2025 19:44:53
+		Generated on Wed, 24 Dec 2025 02:55:07
 	</h3>
 
 	<h3>
-		ZAP Version: 2.16.1
+		ZAP Version: D-2025-12-24
 	</h3>
 
 	<h4>
@@ -253,7 +253,7 @@ td {
 					<div>Low</div>
 				</td>
 				<td align="center">
-					<div>2</div>
+					<div>0</div>
 				</td>
 			</tr>
 			<tr>
@@ -261,7 +261,7 @@ td {
 					<div>Informational</div>
 				</td>
 				<td align="center">
-					<div>2</div>
+					<div>0</div>
 				</td>
 			</tr>
 			<tr>
@@ -275,6 +275,57 @@ td {
 		</table>
 		<div class="spacer-lg"></div>
 	
+	
+	
+		<h3 class="left-header">Insights</h3>
+		<table class="summary100">
+			<tr>
+				<th height="24">Level</th>
+				<th>Reason</th>
+				<th>Site</th>
+				<th>Description</th>
+				<th>Statistic</th>
+			</tr>
+			
+				<tr>
+				<td class="risk-1">
+					<div>Low</div>
+				</td>
+				<td>
+					<div>Warning</div>
+				</td>
+				<td>
+					<div></div>
+				</td>
+				<td>
+					<div>ZAP errors logged - see the zap.log file for details</div>
+				</td>
+				<td align="center">
+					<div>1   </div>
+				</td>
+				</tr>
+			
+				<tr>
+				<td class="risk-1">
+					<div>Low</div>
+				</td>
+				<td>
+					<div>Warning</div>
+				</td>
+				<td>
+					<div></div>
+				</td>
+				<td>
+					<div>ZAP warnings logged - see the zap.log file for details</div>
+				</td>
+				<td align="center">
+					<div>1   </div>
+				</td>
+				</tr>
+			
+		</table>
+		<div class="spacer-lg"></div>
+	
 
 	
 		
@@ -282,8 +333,10 @@ td {
 			<p class="smallnote">For each step: result (Pass/Fail) - risk (of highest alert(s) for the step, if any).</p>
 
 			
+				</table>
+			
 		
-	
+	</th:block>
 
 	
 		<h3>Alerts</h3>
@@ -295,506 +348,13 @@ td {
 				<th width="20%"
 					align="center">Number of Instances</th>
 			</tr>
-			<tr>
-				<td><a href="#10021">X-Content-Type-Options Header Missing</a></td>
-				<td align="center" class="risk-1">Low</td>
-				
-				
-				<td align="center">1</td>
-				
-			</tr>
-			<tr>
-				<td><a href="#10116">ZAP is Out of Date</a></td>
-				<td align="center" class="risk-1">Low</td>
-				
-				
-				<td align="center">1</td>
-				
-			</tr>
-			<tr>
-				<td><a href="#10111">Authentication Request Identified</a></td>
-				<td align="center" class="risk-0">Informational</td>
-				
-				
-				<td align="center">3</td>
-				
-			</tr>
-			<tr>
-				<td><a href="#10024">Information Disclosure - Sensitive Information in URL</a></td>
-				<td align="center" class="risk-0">Informational</td>
-				
-				
-				<td align="center">2</td>
-				
-			</tr>
+			
 		</table>
 		<div class="spacer-lg"></div>
 	
 
 	
 		<h3>Alert Detail</h3>
-		
-			<table class="results">
-				<tr height="24">
-					<th width="20%" class="risk-1"><a
-						id="10021"></a>
-						<div>Low</div></th>
-					<th class="risk-1">X-Content-Type-Options Header Missing</th>
-				</tr>
-				<tr>
-					<td width="20%">Description</td>
-					<td width="80%">
-							<div>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to &#39;nosniff&#39;. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</div>
-							
-						</td>
-				</tr>
-				<TR vAlign="top">
-					<TD colspan="2"></TD>
-				</TR>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://host.docker.internal:8000/openapi.json">http://host.docker.internal:8000/openapi.json</a></td>
-					</tr>
-					
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">x-content-type-options</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
-At &quot;High&quot; threshold this scan rule will not alert on client or server error responses.</td>
-					</tr>
-				
-				<tr>
-					<td width="20%">Instances</td>
-					
-					
-					<td width="80%">1</td>
-					
-				</tr>
-				<tr>
-					<td width="20%">Solution</td>
-					<td width="80%">
-							<div>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to &#39;nosniff&#39; for all web pages.</div>
-							<br />
-						
-							<div>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</div>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">Reference</td>
-					<td width="80%">
-							<a href="https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)">https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</a>
-							<br />
-						
-							<a href="https://owasp.org/www-community/Security_Headers">https://owasp.org/www-community/Security_Headers</a>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">CWE Id</td>
-					<td width="80%"><a
-						href="https://cwe.mitre.org/data/definitions/693.html">693</a></td>
-				</tr>
-				<tr>
-					<td width="20%">WASC Id</td>
-					<td width="80%">15</td>
-				</tr>
-				<tr>
-					<td width="20%">Plugin Id</td>
-					<td width="80%"><a
-						href="https://www.zaproxy.org/docs/alerts/10021/">10021</a></td>
-				</tr>
-			</table>
-			<div class="spacer"></div>
-		
-			<table class="results">
-				<tr height="24">
-					<th width="20%" class="risk-1"><a
-						id="10116"></a>
-						<div>Low</div></th>
-					<th class="risk-1">ZAP is Out of Date</th>
-				</tr>
-				<tr>
-					<td width="20%">Description</td>
-					<td width="80%">
-							<div>The version of ZAP you are using to test your app is out of date and is no longer being updated.</div>
-							<br />
-						
-							<div>The risk level is set based on how out of date your ZAP version is.</div>
-							
-						</td>
-				</tr>
-				<TR vAlign="top">
-					<TD colspan="2"></TD>
-				</TR>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://host.docker.internal:8000/invention?invention_id=">http://host.docker.internal:8000/invention?invention_id=</a></td>
-					</tr>
-					
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">The latest version of ZAP is 2.17.0</td>
-					</tr>
-				
-				<tr>
-					<td width="20%">Instances</td>
-					
-					
-					<td width="80%">1</td>
-					
-				</tr>
-				<tr>
-					<td width="20%">Solution</td>
-					<td width="80%">
-							<div>Download the latest version of ZAP from https://www.zaproxy.org/download/ and install it.</div>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">Reference</td>
-					<td width="80%">
-							<a href="https://www.zaproxy.org/download/">https://www.zaproxy.org/download/</a>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">CWE Id</td>
-					<td width="80%"><a
-						href="https://cwe.mitre.org/data/definitions/1104.html">1104</a></td>
-				</tr>
-				<tr>
-					<td width="20%">WASC Id</td>
-					<td width="80%">45</td>
-				</tr>
-				<tr>
-					<td width="20%">Plugin Id</td>
-					<td width="80%"><a
-						href="https://www.zaproxy.org/docs/alerts/10116/">10116</a></td>
-				</tr>
-			</table>
-			<div class="spacer"></div>
-		
-			<table class="results">
-				<tr height="24">
-					<th width="20%" class="risk-0"><a
-						id="10111"></a>
-						<div>Informational</div></th>
-					<th class="risk-0">Authentication Request Identified</th>
-				</tr>
-				<tr>
-					<td width="20%">Description</td>
-					<td width="80%">
-							<div>The given request has been identified as an authentication request. The &#39;Other Info&#39; field contains a set of key=value lines which identify any relevant fields. If the request is in a context which has an Authentication Method set to &quot;Auto-Detect&quot; then this rule will change the authentication to match the request identified.</div>
-							
-						</td>
-				</tr>
-				<TR vAlign="top">
-					<TD colspan="2"></TD>
-				</TR>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://host.docker.internal:8000/admin/users">http://host.docker.internal:8000/admin/users</a></td>
-					</tr>
-					
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">email</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">password</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">userParam=email
-userValue=zaproxy@example.com
-passwordParam=password</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://host.docker.internal:8000/token">http://host.docker.internal:8000/token</a></td>
-					</tr>
-					
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">username</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">password</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">userParam=username
-userValue=&quot;John Doe&quot;
-passwordParam=password</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://host.docker.internal:8000/users">http://host.docker.internal:8000/users</a></td>
-					</tr>
-					
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">email</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">password</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">userParam=email
-userValue=zaproxy@example.com
-passwordParam=password</td>
-					</tr>
-				
-				<tr>
-					<td width="20%">Instances</td>
-					
-					
-					<td width="80%">3</td>
-					
-				</tr>
-				<tr>
-					<td width="20%">Solution</td>
-					<td width="80%">
-							<div>This is an informational alert rather than a vulnerability and so there is nothing to fix.</div>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">Reference</td>
-					<td width="80%">
-							<a href="https://www.zaproxy.org/docs/desktop/addons/authentication-helper/auth-req-id/">https://www.zaproxy.org/docs/desktop/addons/authentication-helper/auth-req-id/</a>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">CWE Id</td>
-					<td width="80%"></td>
-				</tr>
-				<tr>
-					<td width="20%">WASC Id</td>
-					<td width="80%"></td>
-				</tr>
-				<tr>
-					<td width="20%">Plugin Id</td>
-					<td width="80%"><a
-						href="https://www.zaproxy.org/docs/alerts/10111/">10111</a></td>
-				</tr>
-			</table>
-			<div class="spacer"></div>
-		
-			<table class="results">
-				<tr height="24">
-					<th width="20%" class="risk-0"><a
-						id="10024"></a>
-						<div>Informational</div></th>
-					<th class="risk-0">Information Disclosure - Sensitive Information in URL</th>
-				</tr>
-				<tr>
-					<td width="20%">Description</td>
-					<td width="80%">
-							<div>The request appeared to contain sensitive information leaked in the URL. This can violate PCI and most organizational compliance policies. You can configure the list of strings for this check to add or remove values specific to your environment.</div>
-							
-						</td>
-				</tr>
-				<TR vAlign="top">
-					<TD colspan="2"></TD>
-				</TR>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://host.docker.internal:8000/ticket?ticket_id=">http://host.docker.internal:8000/ticket?ticket_id=</a></td>
-					</tr>
-					
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">DELETE</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">ticket_id</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">ticket_id</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">The URL contains potentially sensitive information. The following string was found via the pattern: ticket
-ticket_id</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://host.docker.internal:8000/ticket?ticket_id=">http://host.docker.internal:8000/ticket?ticket_id=</a></td>
-					</tr>
-					
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">ticket_id</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">ticket_id</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">The URL contains potentially sensitive information. The following string was found via the pattern: ticket
-ticket_id</td>
-					</tr>
-				
-				<tr>
-					<td width="20%">Instances</td>
-					
-					
-					<td width="80%">2</td>
-					
-				</tr>
-				<tr>
-					<td width="20%">Solution</td>
-					<td width="80%">
-							<div>Do not pass sensitive information in URIs.</div>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">Reference</td>
-					<td width="80%"></td>
-				</tr>
-				<tr>
-					<td width="20%">CWE Id</td>
-					<td width="80%"><a
-						href="https://cwe.mitre.org/data/definitions/598.html">598</a></td>
-				</tr>
-				<tr>
-					<td width="20%">WASC Id</td>
-					<td width="80%">13</td>
-				</tr>
-				<tr>
-					<td width="20%">Plugin Id</td>
-					<td width="80%"><a
-						href="https://www.zaproxy.org/docs/alerts/10024/">10024</a></td>
-				</tr>
-			</table>
-			<div class="spacer"></div>
 		
 	
 
