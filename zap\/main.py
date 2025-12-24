@@ -7,8 +7,7 @@ ZAP_PROXY = "http://127.0.0.1:8080"
 API_KEY = "12345"
 TARGET_API = "http://host.docker.internal:8000"
 OPENAPI_URL = f"{TARGET_API}/openapi.json"
-TOKEN_JWT = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDdXB1YWN1TWFzdGVyIiwiZXhwIjoxNzY2NTQyMzk2Ljc5MDc2Nn0.CXUZuLxJFjnjAI5KmnB9UfUAp6lg94KOHDWe9Z7-T5A"  # <--- CONFIRA SEU TOKEN AQUI
-
+TOKEN_JWT = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJDdXB1YWN1TWFzdGVyIiwiZXhwIjoxNzY2NTQ5ODcyLjQ0MzIyN30.GlAoU3O1psa17E2kOqKlRr5TQcbZJs-BgxbMbzNcZ0g"
 # --- 1. CONEXÃO ---
 print(f"Conectando ao ZAP em {ZAP_PROXY}...")
 zap = ZAPv2(proxies={"http": ZAP_PROXY, "https": ZAP_PROXY}, apikey=API_KEY)
@@ -30,14 +29,22 @@ try:
 except Exception as e:
     print(f"Aviso na importação: {e}")
 
-zap.ascan.enable_all_scanners()
+# 1. Desativa todos os scanners para limpar o ruído
+zap.ascan.disable_all_scanners()
 
+# 2. Ativa apenas os 5 IDs mais relevantes para APIs:
+# 40018: SQL Injection (O mais crítico para bancos de dados)
+# 90020: Remote OS Command Injection (Execução de comandos no servidor)
+# 6: Path Traversal (Acesso indevido a arquivos do sistema)
+# 40012: Reflected XSS (Embora comum em web, afeta APIs que retornam HTML/JSON mal manipulado)
+# 90019: Server Side Request Forgery - SSRF (Crítico para APIs que fazem requisições externas)
+IDS_ELITE = "40018,90020,6,40012,90019,40026"
+zap.ascan.enable_scanners(IDS_ELITE)
 
-# Define Política MEDIUM (High é instável no seu ambiente atual)
 NOME_POLITICA = "Estavel"
 
 zap.ascan.add_scan_policy(
-    scanpolicyname=NOME_POLITICA, alertthreshold="Low", attackstrength="Medium"
+    scanpolicyname=NOME_POLITICA, alertthreshold="Low", attackstrength="High"
 )
 
 # --- 5. EXECUÇÃO ---
